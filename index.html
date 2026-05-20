@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FUTURE_IT — Технологии будущего уже сегодня</title>
+
+<style>
+
+/* RESET */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0c10;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* GLOBAL */
+
+.container{
+  width:min(1200px,92%);
+  margin:auto;
+}
+
+img{
+  width:100%;
+  display:block;
+
+  object-fit:cover;
+
+  filter:
+  contrast(1.05)
+  saturate(1.15);
+
+  transition:0.5s;
+}
+
+img:hover{
+  transform:scale(1.03);
+}
+
+/* BACKGROUND EFFECT */
+
+body::before{
+  content:"";
+
+  position:fixed;
+  inset:0;
+
+  background:
+  radial-gradient(circle at top left,
+  rgba(0,255,255,0.15),
+  transparent 30%),
+
+  radial-gradient(circle at bottom right,
+  rgba(148,0,211,0.15),
+  transparent 30%);
+
+  z-index:-1;
+}
+
+/* HEADER */
+
+.header{
+
+  position:fixed;
+  top:0;
+  width:100%;
+
+  z-index:1000;
+
+  background:rgba(0,0,0,0.35);
+
+  backdrop-filter:blur(16px);
+
+  border-bottom:
+  1px solid rgba(255,255,255,0.08);
+}
+
+.nav{
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:20px 0;
+}
+
+.logo{
+
+  font-size:2rem;
+  font-weight:900;
+  letter-spacing:2px;
+}
+
+.logo span{
+
+  color:#00ffff;
+
+  text-shadow:
+  0 0 10px #00ffff,
+  0 0 25px #00ffff;
+}
+
+nav{
+  display:flex;
+  gap:30px;
+}
+
+nav a{
+
+  text-decoration:none;
+
+  color:#d0d0d0;
+
+  transition:0.3s;
+}
+
+nav a:hover{
+
+  color:#00ffff;
+}
+
+/* HERO */
+
+.hero{
+
+  position:relative;
+
+  height:100vh;
+
+  overflow:hidden;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero-image{
+
+  width:100%;
+  height:100vh;
+
+  object-fit:cover;
+}
+
+.hero-overlay{
+
+  position:absolute;
+  inset:0;
+
+  background:
+  linear-gradient(to bottom,
+  rgba(0,0,0,0.3),
+  rgba(0,0,0,0.85));
+}
+
+.hero-content{
+
+  position:absolute;
+
+  z-index:2;
+
+  text-align:center;
+
+  width:min(900px,90%);
+}
+
+.hero-content h1{
+
+  font-size:clamp(3rem,8vw,6rem);
+
+  margin-bottom:25px;
+
+  line-height:1.1;
+
+  text-shadow:
+  0 0 15px #00ffff,
+  0 0 30px #9400d3;
+}
+
+.hero-content p{
+
+  font-size:1.2rem;
+
+  color:#d4d4d4;
+
+  line-height:1.8;
+
+  margin-bottom:35px;
+}
+
+.hero-btn{
+
+  display:inline-block;
+
+  padding:16px 36px;
+
+  border-radius:16px;
+
+  text-decoration:none;
+
+  color:white;
+
+  background:
+  linear-gradient(135deg,#00ffff,#9400d3);
+
+  box-shadow:
+  0 0 25px rgba(0,255,255,0.4);
+
+  transition:0.4s;
+}
+
+.hero-btn:hover{
+
+  transform:translateY(-5px);
+}
+
+/* SECTION TITLE */
+
+.section-title{
+
+  text-align:center;
+
+  font-size:2.8rem;
+
+  margin-bottom:60px;
+
+  color:#00ffff;
+
+  text-shadow:
+  0 0 15px #00ffff;
+}
+
+/* CONCEPTS */
+
+.concepts{
+
+  padding:120px 0;
+}
+
+.grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:30px;
+}
+
+/* CARD */
+
+.card{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(14px);
+
+  transition:0.4s;
+}
+
+.card:hover{
+
+  transform:translateY(-10px);
+
+  border-color:#00ffff;
+}
+
+.card img{
+
+  height:260px;
+}
+
+.card-content{
+
+  padding:24px;
+}
+
+.card-content h3{
+
+  margin-bottom:14px;
+
+  color:#00ffff;
+
+  font-size:1.4rem;
+}
+
+.card-content p{
+
+  color:#d2d2d2;
+
+  line-height:1.7;
+}
+
+/* AI SECTION */
+
+.ai-showcase{
+
+  padding:120px 0;
+}
+
+.ai-wrapper{
+
+  display:grid;
+
+  grid-template-columns:1fr 1fr;
+
+  gap:50px;
+
+  align-items:center;
+}
+
+.ai-text h2{
+
+  font-size:3rem;
+
+  margin-bottom:25px;
+
+  color:#00ffff;
+}
+
+.ai-text p{
+
+  color:#d4d4d4;
+
+  line-height:1.9;
+
+  font-size:1.1rem;
+}
+
+.ai-image img{
+
+  border-radius:30px;
+
+  box-shadow:
+  0 0 35px rgba(0,255,255,0.18);
+}
+
+/* STATS */
+
+.stats{
+
+  padding:120px 0;
+}
+
+.stats-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(240px,1fr));
+
+  gap:25px;
+}
+
+.stat-card{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:24px;
+
+  padding:40px 25px;
+
+  text-align:center;
+
+  backdrop-filter:blur(14px);
+
+  transition:0.4s;
+}
+
+.stat-card:hover{
+
+  transform:translateY(-8px);
+
+  border-color:#9400d3;
+}
+
+.stat-card h3{
+
+  font-size:3rem;
+
+  margin-bottom:18px;
+
+  color:#00ffff;
+}
+
+.stat-card p{
+
+  color:#d4d4d4;
+
+  line-height:1.7;
+}
+
+/* DEVICES */
+
+.devices{
+
+  padding:120px 0;
+}
+
+.devices-grid{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:30px;
+}
+
+.device-card{
+
+  background:
+  rgba(255,255,255,0.08);
+
+  border:
+  1px solid rgba(255,255,255,0.08);
+
+  border-radius:28px;
+
+  overflow:hidden;
+
+  backdrop-filter:blur(15px);
+
+  transition:0.4s;
+}
+
+.device-card:hover{
+
+  transform:translateY(-10px);
+
+  border-color:#00ffff;
+}
+
+.device-card img{
+
+  height:260px;
+}
+
+.device-card h3{
+
+  padding:24px;
+
+  font-size:1.3rem;
+}
+
+/* FOOTER */
+
+.footer{
+
+  padding:60px 0;
+
+  text-align:center;
+
+  background:#070707;
+
+  border-top:
+  1px solid rgba(255,255,255,0.08);
+}
+
+.footer h3{
+
+  color:#00ffff;
+
+  margin-bottom:15px;
+}
+
+.footer p{
+
+  color:#a8a8a8;
+
+  margin:10px 0;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+  .ai-wrapper{
+    grid-template-columns:1fr;
+  }
+
+  nav{
+    gap:15px;
+  }
+
+}
+
+@media(max-width:650px){
+
+  .nav{
+
+    flex-direction:column;
+
+    gap:15px;
+  }
+
+  .hero-content h1{
+    font-size:3rem;
+  }
+
+  .hero-content p{
+    font-size:1rem;
+  }
+
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<div class="container nav">
+
+<div class="logo">
+FUTURE_<span>IT</span>
+</div>
+
+<nav>
+
+<a href="#">Главная</a>
+<a href="#">Технологии</a>
+<a href="#">AI</a>
+<a href="#">Контакты</a>
+
+</nav>
+
+</div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-overlay"></div>
+
+<picture>
+
+<source
+media="(max-width:768px)"
+srcset="
+https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=700&auto=format&fit=crop 700w,
+https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?q=80&w=1000&auto=format&fit=crop 1000w
+"
+sizes="100vw"
+type="image/webp"
+/>
+
+<source
+media="(min-width:769px)"
+srcset="
+https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop 1600w,
+https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2200&auto=format&fit=crop 2200w
+"
+sizes="100vw"
+type="image/webp"
+/>
+
+<img
+src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1600&auto=format&fit=crop"
+alt="Футуристический мегаполис будущего с неоновыми технологиями и цифровыми зданиями"
+width="1600"
+height="900"
+fetchpriority="high"
+decoding="async"
+class="hero-image"
+/>
+
+</picture>
+
+<div class="hero-content">
+
+<h1>
+Технологии будущего уже сегодня
+</h1>
+
+<p>
+Мир стремительно меняется благодаря
+искусственному интеллекту, квантовым
+вычислениям и цифровым инновациям.
+</p>
+
+<a href="#" class="hero-btn">
+Исследовать будущее
+</a>
+
+</div>
+
+</section>
+
+<!-- CONCEPTS -->
+
+<section class="concepts">
+
+<div class="container">
+
+<h2 class="section-title">
+Технологии будущего
+</h2>
+
+<div class="grid">
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop"
+alt="Высокотехнологичный квантовый процессор с неоновыми схемами"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<div class="card-content">
+
+<h3>
+Квантовые компьютеры
+</h3>
+
+<p>
+Сверхмощные вычисления нового поколения.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop"
+alt="Искусственный интеллект и цифровая нейросеть будущего"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<div class="card-content">
+
+<h3>
+Искусственный интеллект
+</h3>
+
+<p>
+Нейросети меняют цифровой мир.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop"
+alt="Футуристический робот-гуманоид нового поколения"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<div class="card-content">
+
+<h3>
+Робототехника
+</h3>
+
+<p>
+Интеллектуальные машины будущего.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=800&auto=format&fit=crop"
+alt="Человек использует технологии виртуальной реальности"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<div class="card-content">
+
+<h3>
+VR / AR технологии
+</h3>
+
+<p>
+Дополненная реальность нового уровня.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop"
+alt="Летающий транспорт будущего в цифровом городе"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<div class="card-content">
+
+<h3>
+Летающий транспорт
+</h3>
+
+<p>
+Инновационные способы передвижения.
+</p>
+
+</div>
+
+</div>
+
+<!-- CARD -->
+
+<div class="card">
+
+<img
+src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?q=80&w=800&auto=format&fit=crop"
+alt="Современный дата центр искусственного интеллекта"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<div class="card-content">
+
+<h3>
+Цифровые системы
+</h3>
+
+<p>
+Серверы и технологии будущего.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AI SHOWCASE -->
+
+<section class="ai-showcase">
+
+<div class="container ai-wrapper">
+
+<div class="ai-text">
+
+<h2>
+Как AI видит будущее
+</h2>
+
+<p>
+Искусственный интеллект уже сегодня
+создает концепции городов будущего,
+умных мегаполисов и полностью
+автономных систем.
+</p>
+
+</div>
+
+<div class="ai-image">
+
+<img
+src="https://images.unsplash.com/photo-1535223289827-42f1e9919769?q=80&w=1400&auto=format&fit=crop"
+alt="Город будущего созданный искусственным интеллектом"
+width="1400"
+height="900"
+loading="lazy"
+decoding="async"
+/>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="stats">
+
+<div class="container">
+
+<h2 class="section-title">
+Будущее уже здесь
+</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card">
+<h3>98%</h3>
+<p>
+Компаний будут использовать AI к 2030 году
+</p>
+</div>
+
+<div class="stat-card">
+<h3>12B+</h3>
+<p>
+Устройств подключатся к сети IoT
+</p>
+</div>
+
+<div class="stat-card">
+<h3>450%</h3>
+<p>
+Рост мощности квантовых вычислений
+</p>
+</div>
+
+<div class="stat-card">
+<h3>24/7</h3>
+<p>
+Автономные системы работают непрерывно
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DEVICES -->
+
+<section class="devices">
+
+<div class="container">
+
+<h2 class="section-title">
+Девайсы будущего
+</h2>
+
+<div class="devices-grid">
+
+<div class="device-card">
+
+<img
+src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=800&auto=format&fit=crop"
+alt="Голографический смартфон будущего"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<h3>
+Голографические смартфоны
+</h3>
+
+</div>
+
+<div class="device-card">
+
+<img
+src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=800&auto=format&fit=crop"
+alt="Умные очки дополненной реальности"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<h3>
+AR / VR очки
+</h3>
+
+</div>
+
+<div class="device-card">
+
+<img
+src="https://images.unsplash.com/photo-1472437774355-71ab6752b434?q=80&w=800&auto=format&fit=crop"
+alt="Футуристический дрон с искусственным интеллектом"
+width="800"
+height="600"
+loading="lazy"
+decoding="async"
+/>
+
+<h3>
+AI Дроны
+</h3>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="footer">
+
+<div class="container">
+
+<h3>
+FUTURE_IT
+</h3>
+
+<p>
+Email: futureit@gmail.com
+</p>
+
+<p>
+© 2026 КПОВ-23 — Все права защищены
+</p>
+
+</div>
+
+</footer>
+
+</body>
+</html>
